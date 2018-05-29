@@ -15,7 +15,13 @@
   },
   "autoload": {
     "classmap": [
-      ""
+      "admin",
+      "admin/settings-pages",
+      "front",
+      "front/templates",
+      "helpers",
+      "includes",
+      "languages"
     ]
   }
 }

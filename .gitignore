@@ -1,5 +1,7 @@
-/vendor
 /node_modules/
+/vendor/*
+!vendor/autoload.php
+!vendor/composer/
 
 # Mac OS custom attribute store and thumbnails
 *.DS_Store

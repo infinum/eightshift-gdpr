@@ -370,7 +370,7 @@ class Front {
 
       $current_stats_value = (int) get_option( $this->general_helper->append_locale( 'esgdpr_stats_level_' . $level ) );
 
-      update_option( $this->general_helper->append_locale( 'esgdpr_stats_level_' . $level, $current_stats_value + 1 ) );
+      update_option( $this->general_helper->append_locale( 'esgdpr_stats_level_' . $level ), $current_stats_value + 1 );
     }
 
     wp_die();

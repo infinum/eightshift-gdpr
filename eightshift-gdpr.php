@@ -56,7 +56,7 @@ define( 'EIGHTSHIFT_GDPR_COOKIE_NAME', 'gdpr' );
  * @since 1.0.0
  * @package eightshift-gdpr
  */
-require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 /**
  * Include the autoloader so we can dynamically include the rest of the classes.

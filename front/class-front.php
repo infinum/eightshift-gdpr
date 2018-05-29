@@ -66,9 +66,13 @@ class Front {
       return false;
     }
 
-    $main_style = 'skin/public/front/styles/esgdprApplication.css';
-    wp_register_style( $this->plugin_name . '-style', plugin_dir_url( __DIR__ ) . $main_style, array(), $this->general_helper->get_assets_version( $main_style ) );
-    wp_enqueue_style( $this->plugin_name . '-style' );
+    if ( has_filter( 'esgdpr_set_front_styles' ) ) {
+      apply_filters( 'esgdpr_set_front_styles', '' );
+    } else {
+      $main_style = 'skin/public/front/styles/esgdprApplication.css';
+      wp_register_style( $this->plugin_name . '-style', plugin_dir_url( __DIR__ ) . $main_style, array(), $this->general_helper->get_assets_version( $main_style ) );
+      wp_enqueue_style( $this->plugin_name . '-style' );
+    }
   }
 
   /**
@@ -81,9 +85,13 @@ class Front {
       return false;
     }
 
-    $main_script = 'skin/public/front/scripts/esgdprApplication.js';
-    wp_register_script( $this->plugin_name . '-scripts', plugin_dir_url( __DIR__ ) . $main_script, array(), $this->general_helper->get_assets_version( $main_script ), true );
-    wp_enqueue_script( $this->plugin_name . '-scripts' );
+    if ( has_filter( 'esgdpr_set_front_scripts' ) ) {
+      apply_filters( 'esgdpr_set_front_scripts', '' );
+    } else {
+      $main_script = 'skin/public/front/scripts/esgdprApplication.js';
+      wp_register_script( $this->plugin_name . '-scripts', plugin_dir_url( __DIR__ ) . $main_script, array(), $this->general_helper->get_assets_version( $main_script ), true );
+      wp_enqueue_script( $this->plugin_name . '-scripts' );
+    }
 
     wp_localize_script(
       $this->plugin_name . '-scripts', 'esgdprLocalization', array(

@@ -17,14 +17,14 @@ $items = $esgdpr_general_helper->get_array_value( 'items', $options );
     <div class="modal-gdpr__container">
 
       <?php if ( ! empty( $title ) ) { ?>
-        <div class="modal-gdpr__title">
+        <h2 class="modal-gdpr__title">
           <?php echo esc_html( $title ); ?>
-        </div>
+        </h2>
       <?php } ?>
 
       <div class="modal-gdpr__content js-modal-gdpr-screen-basic">
         <?php if ( ! empty( $intro ) ) { ?>
-          <div class="modal-gdpr__intro content-style content-media-style">
+          <div class="modal-gdpr__intro content-media-style">
             <?php echo wp_kses_post( apply_filters( 'the_content', $intro ) ); ?>
           </div>
         <?php } ?>
@@ -74,7 +74,7 @@ $items = $esgdpr_general_helper->get_array_value( 'items', $options );
                           </div>
                         <?php } ?>
                         <?php if ( ! empty( $summary ) ) { ?>
-                          <div class="modal-gdpr__selection-item-summary content-style">
+                          <div class="modal-gdpr__selection-item-summary">
                             <?php echo wp_kses_post( apply_filters( 'the_content', $summary ) ); ?>
                           </div>
                         <?php } ?>
@@ -95,7 +95,7 @@ $items = $esgdpr_general_helper->get_array_value( 'items', $options );
                 <?php if ( ! empty( $value ) ) { ?>
                   <?php $description = $esgdpr_general_helper->get_array_value( 'description', $value ); ?>
                   <?php if ( ! empty( $description ) ) { ?>
-                    <div class="modal-gdpr__description-content content-style js-modal-gdpr-description <?php echo ( $selected_item === $i ) ? 'is-active' : ''; ?>" data-id="<?php echo esc_attr( $key ); ?>" data-level="<?php echo esc_attr( $i ); ?>">
+                    <div class="modal-gdpr__description-content js-modal-gdpr-description <?php echo ( $selected_item === $i ) ? 'is-active' : ''; ?>" data-id="<?php echo esc_attr( $key ); ?>" data-level="<?php echo esc_attr( $i ); ?>">
                       <?php echo wp_kses_post( apply_filters( 'the_content', $description ) ); ?>
                     </div>
                   <?php } ?>

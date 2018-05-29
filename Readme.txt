@@ -1,114 +1,54 @@
-=== Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: http://example.com/
-Tags: comments, spam
-Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+=== Eightshift GDPR ===
+Contributors: mustra, dingo_bastard
+Donate link: https://infinum.co/
+Tags: json, gdpr, law, content, modal,
+Tested up to: 4.9.6
+Stable tag: 1.0.0
+Requires at least: 4.4
+Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Simple and elegant plugin to display GDPR modal.
 
 == Description ==
-
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
-
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
-
-A few notes about the sections above:
-
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
-
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
-
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+TODO
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+1. Place `eightshift-gdpr` folder in the `/wp-content/plugins/` directory.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Go to GDPR menu item, fill in the content and check "Activate GDPR" checkbox.
 
-e.g.
+== Hooks ==
 
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
-
-== Frequently Asked Questions ==
-
-= A question that someone might have =
-
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
+* esgdpr_set_capability - Set user access level. Options are saved to options table so ony admin can save changes. This hook provides the ability to change this. Default is "edit_pages" (editor).
+* esgdpr_set_front_styles - Set you own styles and override plugins.
+* esgdpr_set_front_scripts - Set you own scripts and override plugins.
+* esgdpr_set_advance_default_level - When opening modal and clicking on the more info button there is a slider, set default level for this slider if no level is set.
+* esgdpr_set_cookie_name - Change cookie name. Default is "GDPR".
+* esgdpr_set_locale - If using multilanguage use this hook to provide current langauge code. Default uses from get_locale() function. Example: for WPML provide "ICL_LANGUAGE_CODE".
 
 == Screenshots ==
-
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+TODO
 
 == Changelog ==
 
 = 1.0 =
-* A change since the previous version.
-* Another change.
+* Initial release
 
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
 
-== Upgrade Notice ==
+== Credits ==
 
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
+Eightshift GDPR is maintained and sponsored by
+[Infinum](https://www.infinum.co).
 
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
+<img src="https://infinum.co/infinum.png" width="264">
 
-== Arbitrary section ==
+== License ==
 
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
+Eightshift GDPR is Copyright © 2017 Infinum. It is free software, and may be redistributed under the terms specified in the LICENSE file.
 
-== A brief Markdown Example ==
+== Donate ==
 
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](http://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+We don't need your donations. Give it to charity instead. And check out our work at [Infinum](https://www.infinum.co).

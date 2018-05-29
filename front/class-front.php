@@ -96,6 +96,7 @@ class Front {
     wp_localize_script(
       $this->plugin_name . '-scripts', 'esgdprLocalization', array(
           'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+          'locale' => $this->general_helper->get_locale(),
       )
     );
   }
@@ -364,13 +365,15 @@ class Front {
       return;
     }
 
-    $level = '';
-    if ( isset( $_POST['level'] ) ) { // WPCS: input var ok; CSRF ok.
-      $level = sanitize_text_field( wp_unslash( $_POST['level'] ) ); // WPCS: input var ok; CSRF ok.
+    $level  = '';
+    $locale = '';
+    if ( isset( $_POST['level'] ) && isset( $_POST['locale'] ) ) { // WPCS: input var ok; CSRF ok.
+      $level  = sanitize_text_field( wp_unslash( $_POST['level'] ) ); // WPCS: input var ok; CSRF ok.
+      $locale = sanitize_text_field( wp_unslash( $_POST['locale'] ) ); // WPCS: input var ok; CSRF ok.
 
-      $current_stats_value = (int) get_option( $this->general_helper->append_locale( 'esgdpr_stats_level_' . $level ) );
+      $current_stats_value = (int) get_option( 'esgdpr_stats_level_' . $level . '_' . $locale );
 
-      update_option( $this->general_helper->append_locale( 'esgdpr_stats_level_' . $level ), $current_stats_value + 1 );
+      update_option( 'esgdpr_stats_level_' . $level . '_' . $locale, $current_stats_value + 1 );
     }
 
     wp_die();

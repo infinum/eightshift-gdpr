@@ -45,8 +45,12 @@ export class GdprModal {
     return this._scrollPosition;
   }
 
-  statsAjax(level) {
+  statsAjax(level, locale) {
     if (typeof level === 'undefined') {
+      return;
+    }
+
+    if (typeof locale === 'undefined') {
       return;
     }
 
@@ -55,6 +59,7 @@ export class GdprModal {
       nonce: this.$nonceField.val(),
       url: this.ajaxUrl,
       level,
+      locale,
     };
 
     $.post(ajaxData.url, ajaxData);

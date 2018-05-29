@@ -30,7 +30,7 @@ $(function() {
       e.preventDefault();
       const level = $(this).attr('data-level');
 
-      modal.statsAjax(level);
+      modal.statsAjax(level, esgdprLocalization.locale);
       modal.close(level);
     });
 

@@ -134,7 +134,7 @@ class General_Helper {
   }
 
   /**
-   * Check if fature is active.
+   * Check if feature is active.
    *
    * @return boolean
    *

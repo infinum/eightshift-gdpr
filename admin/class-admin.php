@@ -8,7 +8,7 @@
 
 namespace Eightshift_Gdpr\Admin;
 
-use Eightshift_Gdpr\Helpers as General_Helpers;
+use Eightshift_Gdpr\Helpers\General_Helper;
 
 /**
  * Class Admin
@@ -45,11 +45,9 @@ class Admin {
   /**
    * Settings page main page slug
    *
-   * @var string
-   *
    * @since 1.0.0
    */
-  public $settings_slug = 'eightshift-gdpr';
+  const SETTINGS_SLUG = 'eightshift-gdpr';
 
   /**
    * Admin options group name;
@@ -71,7 +69,7 @@ class Admin {
     $this->plugin_name    = $plugin_info['plugin_name'];
     $this->plugin_version = $plugin_info['plugin_version'];
 
-    $this->general_helper = new General_Helpers\General_Helper();
+    $this->general_helper = new General_Helper();
   }
 
   /**
@@ -85,18 +83,18 @@ class Admin {
       esc_html__( 'GDPR', 'eightshift-gdpr' ),
       esc_html__( 'GDPR', 'eightshift-gdpr' ),
       'edit_others_posts',
-      $this->settings_slug,
+      static::SETTINGS_SLUG,
       '',
       'dashicons-products',
       54
     );
 
     add_submenu_page(
-      $this->settings_slug,
+      static::SETTINGS_SLUG,
       esc_html__( 'Settings', 'eightshift-gdpr' ),
       esc_html__( 'Settings', 'eightshift-gdpr' ),
       'edit_others_posts',
-      $this->settings_slug,
+      static::SETTINGS_SLUG,
       array( $this, 'get_settings_page' )
     );
   }

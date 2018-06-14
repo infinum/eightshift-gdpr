@@ -11,9 +11,8 @@
 
 namespace Eightshift_Gdpr\Includes;
 
-use Eightshift_Gdpr\Admin as Admin;
-use Eightshift_Gdpr\Front as Front;
-use Eightshift_Gdpr\Helpers as General_Helpers;
+use Eightshift_Gdpr\Admin\Admin;
+use Eightshift_Gdpr\Front\Front;
 
 /**
  * The main start class.
@@ -119,12 +118,12 @@ class Main {
    * @since 1.0.0
    */
   private function define_admin_hooks() {
-    $admin = new Admin\Admin( $this->get_plugin_info() );
+    $admin = new Admin( $this->get_plugin_info() );
 
     $this->loader->add_action( 'admin_menu', $admin, 'register_settings_page' );
     $this->loader->add_action( 'admin_init', $admin, 'register_settings' );
 
-    $this->loader->add_filter( 'option_page_capability_' . $admin->options_name, $admin, 'permission_level', 10, 1 );
+    $this->loader->add_filter( 'option_page_capability_' . $admin->options_name, $admin, 'permission_level', 10 );
   }
 
   /**
@@ -134,7 +133,7 @@ class Main {
    * @since 1.0.0
    */
   private function define_front_hooks() {
-    $front = new Front\Front( $this->get_plugin_info() );
+    $front = new Front( $this->get_plugin_info() );
 
     $this->loader->add_action( 'wp_enqueue_scripts', $front, 'enqueue_scripts' );
     $this->loader->add_action( 'wp_enqueue_scripts', $front, 'enqueue_styles' );

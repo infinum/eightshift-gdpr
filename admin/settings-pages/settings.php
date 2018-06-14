@@ -21,7 +21,7 @@
         <th scope="row"><?php esc_html_e( 'Activate GDPR', 'eightshift-gdpr' ); ?></th>
         <td>
           <?php $activate_checkbox = $general_helper->get_option_value( 'esgdpr_activate_checkbox' ); ?>
-          <input <?php echo ( 'on' === $activate_checkbox ) ? 'checked="checked"' : ''; ?> name='<?php echo esc_attr( $general_helper->get_option_key( 'esgdpr_activate_checkbox' ) ); ?>' type='checkbox' />
+          <input <?php checked( $activate_checkbox, 'on' ); ?> name='<?php echo esc_attr( $general_helper->get_option_key( 'esgdpr_activate_checkbox' ) ); ?>' type='checkbox' />
         </td>
         <tr valign="top">
           <th scope="row"><?php esc_html_e( 'Statistics', 'eightshift-gdpr' ); ?></th>

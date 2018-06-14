@@ -6,7 +6,7 @@
  * @package eightshift-gdpr
  */
 
-use Eightshift_Gdpr\Front;
+use Eightshift_Gdpr\Front\Front;
 
 if ( ! function_exists( 'esgdpr_get_cookie_name' ) ) {
   /**
@@ -16,7 +16,7 @@ if ( ! function_exists( 'esgdpr_get_cookie_name' ) ) {
    * @since  1.0.0
    */
   function esgdpr_get_cookie_name() {
-    $front = new Front\Front();
+    $front = new Front();
     return $front->get_cookie_name();
   }
 }
@@ -29,7 +29,7 @@ if ( ! function_exists( 'esgdpr_check_level' ) ) {
    * @since  1.0.0
    */
   function esgdpr_check_level() {
-    $front = new Front\Front();
+    $front = new Front();
     return $front->check_level();
   }
 }
@@ -42,7 +42,7 @@ if ( ! function_exists( 'esgdpr_is_gdpr_cookie_set' ) ) {
    * @since  1.0.0
    */
   function esgdpr_is_gdpr_cookie_set() {
-    $front = new Front\Front();
+    $front = new Front();
     return $front->is_gdpr_cookie_set();
   }
 }

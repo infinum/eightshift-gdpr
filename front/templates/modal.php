@@ -30,12 +30,12 @@ $items = $esgdpr_general_helper->get_array_value( 'items', $options );
         <?php } ?>
 
         <a href="#" class="modal-gdpr__more-link js-modal-gdpr-show-advance">
-          <?php esc_html_e( 'More info', 'hpb' ); ?>
+          <?php esc_html_e( 'More info', 'eightshift-gdpr' ); ?>
         </a>
 
         <div class="modal-gdpr__btn-list">
           <a href="#" class="btn modal-gdpr__btn js-modal-gdpr-btn" data-level="2">
-            <?php esc_html_e( 'I accept', 'hpb' ); ?>
+            <?php esc_html_e( 'I accept', 'eightshift-gdpr' ); ?>
             <span class="icon-animated-arrow">
               <span class="icon-animated-arrow__item"></span>
               <span class="icon-animated-arrow__item"></span>
@@ -43,7 +43,7 @@ $items = $esgdpr_general_helper->get_array_value( 'items', $options );
             </span>
           </a>
           <a href="#" class="btn btn--color-default-bordered modal-gdpr__btn js-modal-gdpr-btn" data-level="0">
-            <?php esc_html_e( 'I don\'t accept', 'hpb' ); ?>
+            <?php esc_html_e( 'I don\'t accept', 'eightshift-gdpr' ); ?>
             <span class="icon-animated-arrow">
               <span class="icon-animated-arrow__item"></span>
               <span class="icon-animated-arrow__item"></span>
@@ -67,7 +67,7 @@ $items = $esgdpr_general_helper->get_array_value( 'items', $options );
                     ?>
                     <?php if ( ! empty( $title ) ) { ?>
                       <label for="gdpr-selection-<?php echo esc_attr( $i ); ?>" class="modal-gdpr__selection-item js-modal-gdpr-selection <?php echo ( $selected_item === $i ) ? 'is-active' : ''; ?>" data-id="<?php echo esc_attr( $key ); ?>" data-level="<?php echo esc_attr( $i ); ?>">
-                        <input type="radio" class="js-modal-gdpr-selection-input modal-gdpr__selection-input" name="gdpr-selection" id="gdpr-selection-<?php echo esc_attr( $i ); ?>" value="<?php echo esc_attr( $i ); ?>" <?php echo ( $selected_item === $i ) ? 'checked' : ''; ?>>
+                        <input type="radio" class="js-modal-gdpr-selection-input modal-gdpr__selection-input" name="gdpr-selection" id="gdpr-selection-<?php echo esc_attr( $i ); ?>" value="<?php echo esc_attr( $i ); ?>" <?php checked( $selected_item, $i ); ?> />
                         <?php if ( ! empty( $title ) ) { ?>
                           <div class="modal-gdpr__selection-item-title">
                             <?php echo esc_html( $title ); ?>
@@ -79,7 +79,7 @@ $items = $esgdpr_general_helper->get_array_value( 'items', $options );
                           </div>
                         <?php } ?>
                         <div class="modal-gdpr__selection-item-link">
-                          <?php esc_html_e( 'Switch to cookie level', 'hpb' ); ?>
+                          <?php esc_html_e( 'Switch to cookie level', 'eightshift-gdpr' ); ?>
                         </div>
                       </label>
                     <?php } ?>
@@ -107,7 +107,7 @@ $items = $esgdpr_general_helper->get_array_value( 'items', $options );
 
         <div class="modal-gdpr__btn-list">
           <a href="#" class="btn modal-gdpr__btn js-modal-gdpr-btn js-modal-gdpr-btn-advance" data-level="<?php echo esc_attr( $selected_item ); ?>">
-            <?php esc_html_e( 'I accept', 'hpb' ); ?>
+            <?php esc_html_e( 'I accept', 'eightshift-gdpr' ); ?>
             <span class="icon-animated-arrow">
               <span class="icon-animated-arrow__item"></span>
               <span class="icon-animated-arrow__item"></span>
@@ -115,7 +115,7 @@ $items = $esgdpr_general_helper->get_array_value( 'items', $options );
             </span>
           </a>
           <a href="#" class="btn btn--color-default-bordered modal-gdpr__btn js-modal-gdpr-btn" data-level="0">
-            <?php esc_html_e( 'I don\'t accept', 'hpb' ); ?>
+            <?php esc_html_e( 'I don\'t accept', 'eightshift-gdpr' ); ?>
             <span class="icon-animated-arrow">
               <span class="icon-animated-arrow__item"></span>
               <span class="icon-animated-arrow__item"></span>

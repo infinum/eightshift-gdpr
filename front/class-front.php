@@ -8,7 +8,7 @@
 
 namespace Eightshift_Gdpr\Front;
 
-use Eightshift_Gdpr\Helpers as General_Helpers;
+use Eightshift_Gdpr\Helpers\General_Helper;
 
 /**
  * Class Front
@@ -53,7 +53,7 @@ class Front {
     $this->plugin_name    = $plugin_info['plugin_name'];
     $this->plugin_version = $plugin_info['plugin_version'];
 
-    $this->general_helper = new General_Helpers\General_Helper();
+    $this->general_helper = new General_Helper();
   }
 
   /**

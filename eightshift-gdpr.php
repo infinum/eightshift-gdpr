@@ -19,7 +19,7 @@
 
 namespace Eightshift_Gdpr;
 
-use Eightshift_Gdpr\Includes as Includes;
+use Eightshift_Gdpr\Includes\Main;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -76,7 +76,7 @@ require_once 'helpers/global-utilities.php';
  * @since 1.0.0
  */
 function init_plugin() {
-  $plugin = new Includes\Main();
+  $plugin = new Main();
   $plugin->run();
 }
 

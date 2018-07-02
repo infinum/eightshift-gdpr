@@ -39,6 +39,7 @@ class ComposerStaticInit3575cd518439f5c4a123d8c3e9ae038a
         'Eightshift_Gdpr\\Admin\\Admin' => __DIR__ . '/../..' . '/admin/class-admin.php',
         'Eightshift_Gdpr\\Front\\Front' => __DIR__ . '/../..' . '/front/class-front.php',
         'Eightshift_Gdpr\\Helpers\\General_Helper' => __DIR__ . '/../..' . '/helpers/class-general-helper.php',
+        'Eightshift_Gdpr\\Includes\\Config' => __DIR__ . '/../..' . '/includes/class-config.php',
         'Eightshift_Gdpr\\Includes\\Internationalization' => __DIR__ . '/../..' . '/includes/class-internationalization.php',
         'Eightshift_Gdpr\\Includes\\Loader' => __DIR__ . '/../..' . '/includes/class-loader.php',
         'Eightshift_Gdpr\\Includes\\Main' => __DIR__ . '/../..' . '/includes/class-main.php',

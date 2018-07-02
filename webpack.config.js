@@ -7,6 +7,7 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const appPath = `${path.resolve(__dirname)}`;
 
@@ -19,8 +20,8 @@ const pluginFrontOutput = `${pluginFullPath}/public/front`;
 
 
 // Outputs
-const outputJs = 'scripts/[name].js';
-const outputCss = 'styles/[name].css';
+const outputJs = 'scripts/[name]-[hash].js';
+const outputCss = 'styles/[name]-[hash].css';
 
 const allModules = {
   rules: [
@@ -49,6 +50,8 @@ const allPlugins = [
     $: 'jquery',
     jQuery: 'jquery',
   }),
+
+  new ManifestPlugin(),
 ];
 
 const allOptimizations = {

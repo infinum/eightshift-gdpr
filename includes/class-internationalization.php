@@ -6,45 +6,17 @@
  * so that it is ready for translation.
  *
  * @since   1.0.0
- * @package eightshift-gdpr
+ * @package Eightshift_Gdpr\Includes
  */
 
 namespace Eightshift_Gdpr\Includes;
 
+use Eightshift_Gdpr\Includes\Config;
+
 /**
  * Class Internationalization
  */
-class Internationalization {
-
-  /**
-   * Global plugin name
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  protected $plugin_name;
-
-  /**
-   * Global plugin version
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  protected $plugin_version;
-
-  /**
-   * Initialize class
-   *
-   * @param array $plugin_info Load global plugin info.
-   *
-   * @since 1.0.0
-   */
-  public function __construct( $plugin_info = null ) {
-    $this->plugin_name    = $plugin_info['plugin_name'];
-    $this->plugin_version = $plugin_info['plugin_version'];
-  }
+class Internationalization extends Config {
 
   /**
    * Load the plugin text domain for translation.
@@ -53,7 +25,7 @@ class Internationalization {
    */
   public function load_plugin_textdomain() {
     load_plugin_textdomain(
-      $this->plugin_name,
+      static::PLUGIN_NAME,
       false,
       ( dirname( dirname( __FILE__ ) ) ) . '/languages'
     );

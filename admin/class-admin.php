@@ -3,35 +3,18 @@
  * The admin-specific functionality of the plugin.
  *
  * @since   1.0.0
- * @package eightshift-gdpr
+ * @package Eightshift_Gdpr\Admin
  */
 
 namespace Eightshift_Gdpr\Admin;
 
 use Eightshift_Gdpr\Helpers\General_Helper;
+use Eightshift_Gdpr\Includes\Config;
 
 /**
  * Class Admin
  */
-class Admin {
-
-  /**
-   * Global plugin name
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  protected $plugin_name;
-
-  /**
-   * Global plugin version
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  protected $plugin_version;
+class Admin extends Config {
 
   /**
    * General Helper class
@@ -43,33 +26,14 @@ class Admin {
   public $general_helper;
 
   /**
-   * Settings page main page slug
-   *
-   * @since 1.0.0
-   */
-  const SETTINGS_SLUG = 'eightshift-gdpr';
-
-  /**
-   * Admin options group name;
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  public $options_name = 'gdpr_settings_options';
-
-  /**
    * Initialize class
    *
-   * @param array $plugin_info Load global plugin info.
+   * @param Helpers\General_Helper $general_helper Helper class instance.
    *
    * @since 1.0.0
    */
-  public function __construct( $plugin_info = null ) {
-    $this->plugin_name    = $plugin_info['plugin_name'];
-    $this->plugin_version = $plugin_info['plugin_version'];
-
-    $this->general_helper = new General_Helper();
+  public function __construct( General_Helper $general_helper ) {
+    $this->general_helper = $general_helper;
   }
 
   /**
@@ -122,7 +86,7 @@ class Admin {
     }
 
     foreach ( $options as $option ) {
-      register_setting( $this->options_name, $this->general_helper->append_locale( $option ) );
+      register_setting( static::OPTIONS_NAME, $this->general_helper->append_locale( $option ) );
     }
   }
 
@@ -135,7 +99,7 @@ class Admin {
    * @since 1.0.0
    */
   public function permission_level( $capability ) {
-    $default_capability = 'edit_pages';
+    $default_capability = static::DEFAULT_CAPABILITY;
 
     if ( has_filter( 'esgdpr_set_capability' ) ) {
       $default_capability = apply_filters( 'esgdpr_set_capability', $default_capability );

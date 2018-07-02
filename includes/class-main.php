@@ -6,13 +6,15 @@
  * public-facing side of the site and the admin area.
  *
  * @since   1.0.0
- * @package eightshift-gdpr
+ * @package Eightshift_Gdpr\Includes
  */
 
 namespace Eightshift_Gdpr\Includes;
 
 use Eightshift_Gdpr\Admin\Admin;
 use Eightshift_Gdpr\Front\Front;
+use Eightshift_Gdpr\Helpers\General_Helper;
+use Eightshift_Gdpr\Includes\Config;
 
 /**
  * The main start class.
@@ -22,7 +24,7 @@ use Eightshift_Gdpr\Front\Front;
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
  */
-class Main {
+class Main extends Config {
 
   /**
    * Loader variable for hooks
@@ -34,55 +36,27 @@ class Main {
   protected $loader;
 
   /**
-   * Global plugin name
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  protected $plugin_name;
-
-  /**
-   * Global plugin version
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  protected $plugin_version;
-
-  /**
-   * Global assets version
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  protected $assets_version;
-
-  /**
    * Initialize class
    * Load hooks and define some global variables.
    *
    * @since 1.0.0
    */
   public function __construct() {
-    if ( defined( 'EIGHTSHIFT_GDPR_VERSION' ) ) {
-      $this->plugin_version = EIGHTSHIFT_GDPR_VERSION;
-    } else {
-      $this->plugin_version = '1.0.0';
-    }
-
-    if ( defined( 'EIGHTSHIFT_GDPR_NAME' ) ) {
-      $this->plugin_name = EIGHTSHIFT_GDPR_NAME;
-    } else {
-      $this->plugin_name = 'eightshift-gdpr';
-    }
-
     $this->load_dependencies();
     $this->set_locale();
     $this->define_admin_hooks();
     $this->define_front_hooks();
+  }
+
+  /**
+   * General Helper class instance
+   *
+   * @since 1.0.0
+   *
+   * @return class
+   */
+  public function general_helper() {
+    return new General_Helper();
   }
 
   /**
@@ -106,7 +80,7 @@ class Main {
    * @since 1.0.0
    */
   private function set_locale() {
-    $plugin_i18n = new Internationalization( $this->get_plugin_info() );
+    $plugin_i18n = new Internationalization( $this->general_helper() );
 
     $this->loader->add_action( 'init', $plugin_i18n, 'load_plugin_textdomain' );
   }
@@ -118,12 +92,12 @@ class Main {
    * @since 1.0.0
    */
   private function define_admin_hooks() {
-    $admin = new Admin( $this->get_plugin_info() );
+    $admin = new Admin( $this->general_helper() );
 
     $this->loader->add_action( 'admin_menu', $admin, 'register_settings_page' );
     $this->loader->add_action( 'admin_init', $admin, 'register_settings' );
 
-    $this->loader->add_filter( 'option_page_capability_' . $admin->options_name, $admin, 'permission_level', 10 );
+    $this->loader->add_filter( 'option_page_capability_' . static::OPTIONS_NAME, $admin, 'permission_level', 10 );
   }
 
   /**
@@ -133,7 +107,7 @@ class Main {
    * @since 1.0.0
    */
   private function define_front_hooks() {
-    $front = new Front( $this->get_plugin_info() );
+    $front = new Front( $this->general_helper() );
 
     $this->loader->add_action( 'wp_enqueue_scripts', $front, 'enqueue_scripts' );
     $this->loader->add_action( 'wp_enqueue_scripts', $front, 'enqueue_styles' );
@@ -157,51 +131,23 @@ class Main {
   }
 
   /**
-   * The reference to the class that orchestrates the hooks.
-   *
-   * @return Loader Orchestrates the hooks.
+   * Define global variable to save memory when parsing manifest on every load.
    *
    * @since 1.0.0
    */
-  public function get_loader() {
-    return $this->loader;
-  }
+  public function set_assets_manifest_data() {
+    $response = wp_remote_get( ESGDPR_ASSETS_PUBLIC_URL . 'manifest.json' );
 
-  /**
-   * The name used to uniquely identify it within the context of
-   * WordPress and to define internationalization functionality.
-   *
-   * @return string Plugin name.
-   *
-   * @since 1.0.0
-   */
-  public function get_plugin_name() {
-    return $this->plugin_name;
-  }
+    if ( ! is_array( $response ) && is_wp_error( $response ) ) {
+      return;
+    }
 
-  /**
-   * Retrieve the version number.
-   *
-   * @return string Plugin version number.
-   *
-   * @since 1.0.0
-   */
-  public function get_plugin_version() {
-    return $this->plugin_version;
-  }
+    $parsed_data = json_decode( $response['body'] );
 
-  /**
-   * Retrieve the plugin info array.
-   *
-   * @return array Plugin info array.
-   *
-   * @since 1.0.0
-   */
-  public function get_plugin_info() {
-    return array(
-        'plugin_name'    => $this->plugin_name,
-        'plugin_version' => $this->plugin_version,
-    );
-  }
+    if ( ! $parsed_data ) {
+      return;
+    }
 
+    define( 'ESGDPR_ASSETS_MANIFEST', (array) $parsed_data );
+  }
 }

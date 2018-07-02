@@ -3,7 +3,7 @@
  * The global utilities helper specific functionality.
  *
  * @since   1.0.0
- * @package eightshift-gdpr
+ * @package Eightshift_Gdpr\Helpers
  */
 
 use Eightshift_Gdpr\Front\Front;

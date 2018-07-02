@@ -3,35 +3,18 @@
  * The front-specific functionality of the plugin.
  *
  * @since   1.0.0
- * @package eightshift-gdpr
+ * @package Eightshift_Gdpr\Front
  */
 
 namespace Eightshift_Gdpr\Front;
 
 use Eightshift_Gdpr\Helpers\General_Helper;
+use Eightshift_Gdpr\Includes\Config;
 
 /**
  * Class Front
  */
-class Front {
-
-  /**
-   * Global plugin name
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  protected $plugin_name;
-
-  /**
-   * Global plugin version
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  protected $plugin_version;
+class Front extends Config {
 
   /**
    * General Helper class
@@ -45,15 +28,12 @@ class Front {
   /**
    * Initialize class
    *
-   * @param array $plugin_info Load global plugin info.
+   * @param Helpers\General_Helper $general_helper Helper class instance.
    *
    * @since 1.0.0
    */
-  public function __construct( $plugin_info = null ) {
-    $this->plugin_name    = $plugin_info['plugin_name'];
-    $this->plugin_version = $plugin_info['plugin_version'];
-
-    $this->general_helper = new General_Helper();
+  public function __construct( General_Helper $general_helper ) {
+    $this->general_helper = $general_helper;
   }
 
   /**
@@ -69,9 +49,9 @@ class Front {
     if ( has_filter( 'esgdpr_set_front_styles' ) ) {
       apply_filters( 'esgdpr_set_front_styles', '' );
     } else {
-      $main_style = 'skin/public/front/styles/esgdprApplication.css';
-      wp_register_style( $this->plugin_name . '-style', plugin_dir_url( __DIR__ ) . $main_style, array(), $this->general_helper->get_assets_version( $main_style ) );
-      wp_enqueue_style( $this->plugin_name . '-style' );
+      $main_style = $this->general_helper->get_manifest_assets_data( 'esgdprApplication.css' );
+      wp_register_style( static::PLUGIN_NAME . '-style', $main_style );
+      wp_enqueue_style( static::PLUGIN_NAME . '-style' );
     }
   }
 
@@ -88,9 +68,9 @@ class Front {
     if ( has_filter( 'esgdpr_set_front_scripts' ) ) {
       apply_filters( 'esgdpr_set_front_scripts', '' );
     } else {
-      $main_script = 'skin/public/front/scripts/esgdprApplication.js';
-      wp_register_script( $this->plugin_name . '-scripts', plugin_dir_url( __DIR__ ) . $main_script, array(), $this->general_helper->get_assets_version( $main_script ), true );
-      wp_enqueue_script( $this->plugin_name . '-scripts' );
+      $main_script = $this->general_helper->get_manifest_assets_data( 'esgdprApplication.js' );
+      wp_register_script( static::PLUGIN_NAME . '-scripts', $main_script );
+      wp_enqueue_script( static::PLUGIN_NAME . '-scripts' );
     }
 
     wp_localize_script(
@@ -131,7 +111,7 @@ class Front {
     if ( $this->is_gdpr_cookie_set() ) {
       $selected_item = (int) $this->check_level();
     } else {
-      $selected_item = 2;
+      $selected_item = static::DEFAULT_MODAL_ADVANCE_SELECTED_LEVEL;
 
       // Ability to override default level.
       if ( has_filter( 'esgdpr_set_advance_default_level' ) ) {
@@ -157,7 +137,7 @@ class Front {
    * @since  1.0.0
    */
   public function get_cookie_name() {
-    $cookie_name = EIGHTSHIFT_GDPR_COOKIE_NAME;
+    $cookie_name = static::COOKIE_NAME;
 
     if ( has_filter( 'esgdpr_set_cookie_name' ) ) {
       $cookie_name = apply_filters( 'esgdpr_set_cookie_name', $cookie_name );

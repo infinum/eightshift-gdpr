@@ -10,6 +10,7 @@ return array(
     'Eightshift_Gdpr\\Admin\\Admin' => $baseDir . '/admin/class-admin.php',
     'Eightshift_Gdpr\\Front\\Front' => $baseDir . '/front/class-front.php',
     'Eightshift_Gdpr\\Helpers\\General_Helper' => $baseDir . '/helpers/class-general-helper.php',
+    'Eightshift_Gdpr\\Includes\\Config' => $baseDir . '/includes/class-config.php',
     'Eightshift_Gdpr\\Includes\\Internationalization' => $baseDir . '/includes/class-internationalization.php',
     'Eightshift_Gdpr\\Includes\\Loader' => $baseDir . '/includes/class-loader.php',
     'Eightshift_Gdpr\\Includes\\Main' => $baseDir . '/includes/class-main.php',

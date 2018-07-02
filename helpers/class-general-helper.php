@@ -3,7 +3,7 @@
  * The general helper specific functionality.
  *
  * @since   1.0.0
- * @package eightshift-gdpr
+ * @package Eightshift_Gdpr\Helpers
  */
 
 namespace Eightshift_Gdpr\Helpers;
@@ -14,56 +14,26 @@ namespace Eightshift_Gdpr\Helpers;
 class General_Helper {
 
   /**
-   * Global plugin name
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  protected $plugin_name;
-
-  /**
-   * Global plugin version
-   *
-   * @var string
-   *
-   * @since 1.0.0
-   */
-  protected $plugin_version;
-
-  /**
-   * Initialize class
-   *
-   * @param array $plugin_info Load global plugin info.
-   *
-   * @since 1.0.0
-   */
-  public function __construct( $plugin_info = null ) {
-    $this->plugin_name    = $plugin_info['plugin_name'];
-    $this->plugin_version = $plugin_info['plugin_version'];
-  }
-
-  /**
-   * Return timestamp when file is changes.
+   * Return full path for specific asset from manifest.json
    * This is used for cache busting assets.
    *
-   * @param string $filename File name you want to get timestamp from.
-   * @return init Timestamp.
+   * @param string $key File name key you want to get from manifest.
+   * @return string Full path to asset.
    *
    * @since 1.0.0
    */
-  public function get_assets_version( $filename = null ) {
-    if ( ! $filename ) {
-      return false;
-    }
+  public function get_manifest_assets_data( $key = null ) {
+    $data = ESGDPR_ASSETS_MANIFEST;
 
-    $file_location = get_template_directory() . $filename;
-
-    if ( ! file_exists( $file_location ) ) {
+    if ( ! ( $key || $data ) ) {
       return;
     }
 
-    return filemtime( $file_location );
+    $asset = $this->get_array_value( $key, $data );
+
+    if ( ! empty( $asset ) ) {
+      return home_url( $asset );
+    }
   }
 
   /**

@@ -3,7 +3,7 @@
  * Register all actions and filters for the plugin
  *
  * @since   1.0.0
- * @package eightshift-gdpr
+ * @package Eightshift_Gdpr\Includes
  */
 
 namespace Eightshift_Gdpr\Includes;

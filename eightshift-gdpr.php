@@ -26,35 +26,18 @@ if ( ! defined( 'WPINC' ) ) {
   die;
 }
 
-/**
- * Plugins version global
- *
- * @since 1.0.0
- * @package eightshift-gdpr
- */
-define( 'EIGHTSHIFT_GDPR_VERSION', '1.0.0' );
 
 /**
- * Plugins name global
+ * Global assets public path
  *
  * @since 1.0.0
- * @package eightshift-gdpr
  */
-define( 'EIGHTSHIFT_GDPR_NAME', 'eightshift-gdpr' );
-
-/**
- * Cookie Name global
- *
- * @since 1.0.0
- * @package eightshift-gdpr
- */
-define( 'EIGHTSHIFT_GDPR_COOKIE_NAME', 'gdpr' );
+define( 'ESGDPR_ASSETS_PUBLIC_URL', get_template_directory_uri() . '/skin/public/' );
 
 /**
  * Include the autoloader so we can dynamically include the rest of the classes.
  *
  * @since 1.0.0
- * @package eightshift-gdpr
  */
 require __DIR__ . '/vendor/autoload.php';
 
@@ -62,7 +45,6 @@ require __DIR__ . '/vendor/autoload.php';
  * Include the autoloader so we can dynamically include the rest of the classes.
  *
  * @since 1.0.0
- * @package eightshift-gdpr
  */
 require_once 'helpers/global-utilities.php';
 

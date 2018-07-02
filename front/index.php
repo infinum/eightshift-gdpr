@@ -2,7 +2,7 @@
 /**
  * Index file for security
  *
- * @package eightshift-gdpr
+ * @package Eightshift_Gdpr\Front
  */
 
 ?>

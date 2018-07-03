@@ -15,8 +15,8 @@ const appPath = `${path.resolve(__dirname)}`;
 const pluginPath = '/skin';
 const pluginFullPath = `${appPath}${pluginPath}`;
 const pluginPublicPath = `${pluginPath}/public/`;
-const pluginFrontEntry = `${pluginFullPath}/assets/front/application.js`;
-const pluginFrontOutput = `${pluginFullPath}/public/front`;
+const pluginFrontEntry = `${pluginFullPath}/assets/application.js`;
+const pluginFrontOutput = `${pluginFullPath}/public`;
 
 
 // Outputs

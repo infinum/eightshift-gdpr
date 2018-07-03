@@ -32,7 +32,7 @@ class General_Helper {
     $asset = $this->get_array_value( $key, $data );
 
     if ( ! empty( $asset ) ) {
-      return home_url( $asset );
+      return plugins_url( $asset, __DIR__ );
     }
   }
 

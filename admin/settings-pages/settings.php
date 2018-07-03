@@ -51,7 +51,15 @@
       </tr>
       <tr valign="top">
         <th scope="row"><?php esc_html_e( 'Intro', 'eightshift-gdpr' ); ?></th>
-        <td><?php wp_editor( $general_helper->get_option_value( 'esgdpr_intro' ), $general_helper->get_option_key( 'esgdpr_intro' ), array( 'textarea_rows' => '10' ) ); ?></td>
+        <td>
+        <?php
+        wp_editor(
+          $general_helper->get_option_value( 'esgdpr_intro' ), $general_helper->get_option_key( 'esgdpr_intro' ), array(
+              'textarea_rows' => '10',
+          )
+        );
+?>
+</td>
       </tr>
     </table>
 
@@ -72,11 +80,27 @@
       </tr>
       <tr valign="top">
         <th scope="row"><?php esc_html_e( 'Summary', 'eightshift-gdpr' ); ?></th>
-        <td><?php wp_editor( $general_helper->get_option_value( 'esgdpr_cookie_required_summary' ), $general_helper->get_option_key( 'esgdpr_cookie_required_summary' ), array( 'textarea_rows' => '10' ) ); ?></td>
+        <td>
+        <?php
+        wp_editor(
+          $general_helper->get_option_value( 'esgdpr_cookie_required_summary' ), $general_helper->get_option_key( 'esgdpr_cookie_required_summary' ), array(
+              'textarea_rows' => '10',
+          )
+        );
+?>
+</td>
       </tr>
       <tr valign="top">
         <th scope="row"><?php esc_html_e( 'Description', 'eightshift-gdpr' ); ?></th>
-        <td><?php wp_editor( $general_helper->get_option_value( 'esgdpr_cookie_required_description' ), $general_helper->get_option_key( 'esgdpr_cookie_required_description' ), array( 'textarea_rows' => '10' ) ); ?></td>
+        <td>
+        <?php
+        wp_editor(
+          $general_helper->get_option_value( 'esgdpr_cookie_required_description' ), $general_helper->get_option_key( 'esgdpr_cookie_required_description' ), array(
+              'textarea_rows' => '10',
+          )
+        );
+?>
+</td>
       </tr>
     </table>
 
@@ -97,11 +121,27 @@
       </tr>
       <tr valign="top">
         <th scope="row"><?php esc_html_e( 'Summary', 'eightshift-gdpr' ); ?></th>
-        <td><?php wp_editor( $general_helper->get_option_value( 'esgdpr_cookie_functional_summary' ), $general_helper->get_option_key( 'esgdpr_cookie_functional_summary' ), array( 'textarea_rows' => '10' ) ); ?></td>
+        <td>
+        <?php
+        wp_editor(
+          $general_helper->get_option_value( 'esgdpr_cookie_functional_summary' ), $general_helper->get_option_key( 'esgdpr_cookie_functional_summary' ), array(
+              'textarea_rows' => '10',
+          )
+        );
+?>
+</td>
       </tr>
       <tr valign="top">
         <th scope="row"><?php esc_html_e( 'Description', 'eightshift-gdpr' ); ?></th>
-        <td><?php wp_editor( $general_helper->get_option_value( 'esgdpr_cookie_functional_description' ), $general_helper->get_option_key( 'esgdpr_cookie_functional_description' ), array( 'textarea_rows' => '10' ) ); ?></td>
+        <td>
+        <?php
+        wp_editor(
+          $general_helper->get_option_value( 'esgdpr_cookie_functional_description' ), $general_helper->get_option_key( 'esgdpr_cookie_functional_description' ), array(
+              'textarea_rows' => '10',
+          )
+        );
+?>
+</td>
       </tr>
     </table>
 
@@ -115,11 +155,27 @@
       </tr>
       <tr valign="top">
         <th scope="row"><?php esc_html_e( 'Summary', 'eightshift-gdpr' ); ?></th>
-        <td><?php wp_editor( $general_helper->get_option_value( 'esgdpr_cookie_marketing_summary' ), $general_helper->get_option_key( 'esgdpr_cookie_marketing_summary' ), array( 'textarea_rows' => '10' ) ); ?></td>
+        <td>
+        <?php
+        wp_editor(
+          $general_helper->get_option_value( 'esgdpr_cookie_marketing_summary' ), $general_helper->get_option_key( 'esgdpr_cookie_marketing_summary' ), array(
+              'textarea_rows' => '10',
+          )
+        );
+?>
+</td>
       </tr>
       <tr valign="top">
         <th scope="row"><?php esc_html_e( 'Description', 'eightshift-gdpr' ); ?></th>
-        <td><?php wp_editor( $general_helper->get_option_value( 'esgdpr_cookie_marketing_description' ), $general_helper->get_option_key( 'esgdpr_cookie_marketing_description' ), array( 'textarea_rows' => '10' ) ); ?></td>
+        <td>
+        <?php
+        wp_editor(
+          $general_helper->get_option_value( 'esgdpr_cookie_marketing_description' ), $general_helper->get_option_key( 'esgdpr_cookie_marketing_description' ), array(
+              'textarea_rows' => '10',
+          )
+        );
+?>
+</td>
       </tr>
     </table>
 

@@ -32,7 +32,7 @@ if ( ! defined( 'WPINC' ) ) {
  *
  * @since 1.0.0
  */
-define( 'ESGDPR_ASSETS_PUBLIC_URL', get_template_directory_uri() . '/skin/public/' );
+define( 'ESGDPR_ASSETS_PUBLIC_URL', plugins_url( '/skin/public/', __FILE__ ) );
 
 /**
  * Include the autoloader so we can dynamically include the rest of the classes.

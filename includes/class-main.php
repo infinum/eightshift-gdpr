@@ -44,6 +44,7 @@ class Main extends Config {
   public function __construct() {
     $this->load_dependencies();
     $this->set_locale();
+    $this->set_assets_manifest_data();
     $this->define_admin_hooks();
     $this->define_front_hooks();
   }

@@ -69,12 +69,12 @@ class Front extends Config {
       apply_filters( 'esgdpr_set_front_scripts', '' );
     } else {
       $main_script = $this->general_helper->get_manifest_assets_data( 'esgdprApplication.js' );
-      wp_register_script( static::PLUGIN_NAME . '-scripts', $main_script );
+      wp_register_script( static::PLUGIN_NAME . '-scripts', $main_script, array( 'jquery' ) );
       wp_enqueue_script( static::PLUGIN_NAME . '-scripts' );
     }
 
     wp_localize_script(
-      $this->plugin_name . '-scripts', 'esgdprLocalization', array(
+      static::PLUGIN_NAME . '-scripts', 'esgdprLocalization', array(
           'ajaxUrl' => admin_url( 'admin-ajax.php' ),
           'locale' => $this->general_helper->get_locale(),
       )
@@ -120,7 +120,7 @@ class Front extends Config {
     }
 
     // Load theme template if doesn't exist use plugins default template.
-    $template = get_template_directory() . '/' . $this->plugin_name . '/modal.php';
+    $template = get_template_directory() . '/' . static::PLUGIN_NAME . '/modal.php';
 
     if ( ! file_exists( $template ) ) {
       $template = plugin_dir_path( dirname( __FILE__ ) ) . 'front/templates/modal.php';

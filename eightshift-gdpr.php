@@ -8,10 +8,10 @@
  * @wordpress-plugin
  * Plugin Name:       Eightshift GDPR
  * Plugin URI:
- * Description:       This is plugin for GDPR on WordPress
+ * Description:       Simple and elegant plugin to display GDPR modal that manages your site cookies.
  * Version:           1.0.0
  * Author:            Eightshift team <team@eightshift.com>
- * Author URI:
+ * Author URI:        https://infinum.co
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       eightshift-gdpr

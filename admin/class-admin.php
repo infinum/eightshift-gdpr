@@ -93,12 +93,11 @@ class Admin extends Config {
   /**
    * Set editor ability to edit this admin page.
    *
-   * @param string $capability Add role.
    * @return string
    *
    * @since 1.0.0
    */
-  public function permission_level( $capability ) {
+  public function permission_level() {
     $default_capability = static::DEFAULT_CAPABILITY;
 
     if ( has_filter( 'esgdpr_set_capability' ) ) {

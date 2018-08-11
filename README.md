@@ -1,9 +1,18 @@
 # Eightshift GDPR Plugin
 
+**Contributors**: mustra, dingo_bastard  
+**Tags**: json, gdpr, law, content, modal, privacy, compliance, general data protection regulation  
+**Tested up to**: 4.9.8  
+**Stable tag**: 1.0.0  
+**Requires at least**: 4.4  
+**Requires PHP**: 5.6  
+**License**: GPLv2 or later  
+**License URI**: http://www.gnu.org/licenses/gpl-2.0.html
+
 ## Development Start
 Builds assets in watch mode using Webpack.
 
-```
+```bash
 npm start
 ```
 
@@ -11,7 +20,7 @@ npm start
 We are using Infinum [ES](https://www.npmjs.com/package/@infinumjs/eslint-config) and [Style](https://www.npmjs.com/package/@infinumjs/stylelint-config) linters. 
 Lints JS and SASS using Webpack.
 
-```
+```bash
 npm run precommit
 ```
 
@@ -22,7 +31,7 @@ To install it, you need to install [Composer](https://getcomposer.org/) first.
 
 * Add this aliases to you bash config:
 
-```
+```bash
 alias phpcs='vendor/bin/phpcs';
 alias phpcbf='vendor/bin/phpcbf';
 alias wpcs='phpcs --standard=vendor/infinum/coding-standards-wp/Infinum';
@@ -31,23 +40,23 @@ alias wpcbf='phpcbf --standard=vendor/infinum/coding-standards-wp/Infinum';
 * Reload terminal
 
 Checking plugin for possible violations:
-```
+
+```bash
 wpcs eightshift-gdpr
 ```
 
 Autofix plugin for minor violations:
-```
+
+```bash
 wpcbf eightshift-gdpr
 ```
 
 ## Build
 Build creates public folder in plugin for all the assets.
 
-```
-
 Builds production ready assets
 
-```
+```bash
 sh _build.sh
 ```
 

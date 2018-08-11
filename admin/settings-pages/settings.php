@@ -58,8 +58,8 @@
               'textarea_rows' => '10',
           )
         );
-?>
-</td>
+        ?>
+        </td>
       </tr>
     </table>
 
@@ -87,8 +87,8 @@
               'textarea_rows' => '10',
           )
         );
-?>
-</td>
+        ?>
+        </td>
       </tr>
       <tr valign="top">
         <th scope="row"><?php esc_html_e( 'Description', 'eightshift-gdpr' ); ?></th>
@@ -99,8 +99,8 @@
               'textarea_rows' => '10',
           )
         );
-?>
-</td>
+        ?>
+        </td>
       </tr>
     </table>
 
@@ -128,8 +128,8 @@
               'textarea_rows' => '10',
           )
         );
-?>
-</td>
+        ?>
+        </td>
       </tr>
       <tr valign="top">
         <th scope="row"><?php esc_html_e( 'Description', 'eightshift-gdpr' ); ?></th>
@@ -140,8 +140,8 @@
               'textarea_rows' => '10',
           )
         );
-?>
-</td>
+        ?>
+        </td>
       </tr>
     </table>
 
@@ -162,8 +162,8 @@
               'textarea_rows' => '10',
           )
         );
-?>
-</td>
+        ?>
+        </td>
       </tr>
       <tr valign="top">
         <th scope="row"><?php esc_html_e( 'Description', 'eightshift-gdpr' ); ?></th>
@@ -174,8 +174,8 @@
               'textarea_rows' => '10',
           )
         );
-?>
-</td>
+        ?>
+        </td>
       </tr>
     </table>
 

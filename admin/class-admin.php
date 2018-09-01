@@ -106,4 +106,15 @@ class Admin extends Config {
 
     return $default_capability;
   }
+
+  /**
+   * Add plugin settings link on plugins page
+   *
+   * @param array $links Plugin action links.
+   */
+  public function add_action_links( $links ) {
+     $links[] = '<a href="' . admin_url( 'admin.php?page=eightshift-gdpr' ) . '">' . esc_html__( 'Settings', 'eightshift-gdpr' ) . '</a>';
+
+    return $links;
+  }
 }

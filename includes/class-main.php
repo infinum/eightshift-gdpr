@@ -99,6 +99,9 @@ class Main extends Config {
     $this->loader->add_action( 'admin_init', $admin, 'register_settings' );
 
     $this->loader->add_filter( 'option_page_capability_' . static::OPTIONS_NAME, $admin, 'permission_level', 10 );
+
+    $this->loader->add_filter( 'plugin_action_links_eightshift-gdpr/eightshift-gdpr.php', $admin, 'add_action_links' );
+
   }
 
   /**
@@ -143,12 +146,6 @@ class Main extends Config {
       return;
     }
 
-    $parsed_data = json_decode( $response['body'] );
-
-    if ( ! $parsed_data ) {
-      return;
-    }
-
-    define( 'ESGDPR_ASSETS_MANIFEST', (array) $parsed_data );
+    define( 'ESGDPR_ASSETS_MANIFEST', (string) wp_remote_retrieve_body( $response ) );
   }
 }

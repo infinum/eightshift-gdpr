@@ -81,7 +81,7 @@ class Main extends Config {
    * @since 1.0.0
    */
   private function set_locale() {
-    $plugin_i18n = new Internationalization( $this->general_helper() );
+    $plugin_i18n = new Internationalization();
 
     $this->loader->add_action( 'init', $plugin_i18n, 'load_plugin_textdomain' );
   }

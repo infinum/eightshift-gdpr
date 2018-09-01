@@ -21,6 +21,7 @@ class ComposerStaticInitac162df7a1e3aefce2b2fb705a6d5c92
     );
 
     public static $classMap = array (
+        'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin' => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src/Plugin.php',
         'Eightshift_Gdpr\\Admin\\Admin' => __DIR__ . '/../..' . '/admin/class-admin.php',
         'Eightshift_Gdpr\\Front\\Front' => __DIR__ . '/../..' . '/front/class-front.php',
         'Eightshift_Gdpr\\Helpers\\General_Helper' => __DIR__ . '/../..' . '/helpers/class-general-helper.php',

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin' => $vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src/Plugin.php',
     'Eightshift_Gdpr\\Admin\\Admin' => $baseDir . '/admin/class-admin.php',
     'Eightshift_Gdpr\\Front\\Front' => $baseDir . '/front/class-front.php',
     'Eightshift_Gdpr\\Helpers\\General_Helper' => $baseDir . '/helpers/class-general-helper.php',

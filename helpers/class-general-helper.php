@@ -25,11 +25,13 @@ class General_Helper {
   public function get_manifest_assets_data( $key = null ) {
     $data = ESGDPR_ASSETS_MANIFEST;
 
-    if ( ! ( $key || $data ) ) {
+    $data_array = json_decode( $data, true );
+
+    if ( ! ( $key || $data ) || empty( $data_array ) ) {
       return;
     }
 
-    $asset = $this->get_array_value( $key, $data );
+    $asset = $this->get_array_value( $key, $data_array );
 
     if ( ! empty( $asset ) ) {
       return plugins_url( $asset, __DIR__ );

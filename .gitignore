@@ -1,3 +1,4 @@
+# Development packages
 /node_modules/
 /vendor/*
 !vendor/autoload.php
@@ -6,3 +7,4 @@
 # Mac OS custom attribute store and thumbnails
 *.DS_Store
 ._*
+

@@ -115,9 +115,9 @@ export class GdprModal {
     // For Iphone and iPad check and add different style
 
     if (device.iPhone()) {
-      activeClass = 'u-no-scroll-ios';
+      activeClass = 'gdpr-modal-no-scroll-ios';
     } else {
-      activeClass = 'u-no-scroll';
+      activeClass = 'gdpr-modal-no-scroll';
     }
 
     return activeClass;

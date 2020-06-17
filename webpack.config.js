@@ -4,7 +4,7 @@ const DEV = process.env.NODE_ENV !== 'production';
 
 const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -79,13 +79,14 @@ if (!DEV) {
           comments: false,
         },
         compress: {
-          warnings: false,
           drop_console: true, // eslint-disable-line camelcase
         },
       },
     }),
   ];
-  allPlugins.push(new CleanWebpackPlugin([pluginFrontOutput]));
+  allPlugins.push(new CleanWebpackPlugin({
+    cleanStaleWebpackAssets: false,
+  }));
 }
 
 module.exports = [

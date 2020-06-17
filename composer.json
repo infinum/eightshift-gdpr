@@ -1,14 +1,21 @@
 {
+  "name": "eightshift/eightshift-gdpr",
+  "description": "Simple and elegant plugin to display GDPR modal that manages your site cookies.",
+  "type": "wordpress-plugin",
   "require-dev": {
-    "infinum/coding-standards-wp": "*"
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.6",
+    "infinum/coding-standards-wp": "^0.4.3"
   },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Eightshift Team",
+      "email": "team@eightshift.com"
+    }
+  ],
   "scripts": {
-    "post-install-cmd": [
-      "\"vendor/bin/phpcs\" --config-set installed_paths vendor/infinum/coding-standards-wp"
-    ],
-    "post-update-cmd": [
-      "\"vendor/bin/phpcs\" --config-set installed_paths vendor/infinum/coding-standards-wp"
-    ]
+    "standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+    "standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
   },
   "autoload": {
     "classmap": [

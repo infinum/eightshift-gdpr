@@ -2,12 +2,12 @@
 Contributors: mustra, dingo_bastard
 Donate link: https://infinum.co/
 Tags: json, gdpr, law, content, modal, privacy, compliance, general data protection regulation
-Tested up to: 4.9.8
+Tested up to: 5.4.2
 Stable tag: 1.0.0
-Requires at least: 4.4
-Requires PHP: 5.6
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Requires at least: 5.0
+Requires PHP: 7.2
+License: MIT
+License URI: https://opensource.org/licenses/MIT
 
 Simple and elegant plugin to display GDPR modal that manages your site cookies.
 

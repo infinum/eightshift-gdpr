@@ -140,7 +140,7 @@ class Main extends Config {
    * @since 1.0.0
    */
   public function set_assets_manifest_data() {
-    $response = wp_remote_get( ESGDPR_ASSETS_PUBLIC_URL . 'manifest.json' );
+    $response = wp_remote_get( ESGDPR_ASSETS_PUBLIC_URL . 'manifest.json', array( 'sslverify' => false ) );
 
     if ( ! is_array( $response ) && is_wp_error( $response ) ) {
       return;

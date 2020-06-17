@@ -73,7 +73,7 @@ msgstr "Potrebna razina"
 
 #: admin/settings-pages/settings.php:75 admin/settings-pages/settings.php:116
 msgid "Exclude List"
-msgstr "Lista za iskključivanja"
+msgstr "Lista za isključivanja"
 
 #: admin/settings-pages/settings.php:78 admin/settings-pages/settings.php:119
 msgid ""

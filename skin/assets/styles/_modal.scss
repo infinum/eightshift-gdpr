@@ -283,18 +283,18 @@ $modal-gdpr: (
       margin-right: 0;
     }
   }
-}
 
-.u-no-scroll {
-  overflow: hidden;
-
-  &-ios,
-  &-mobile-navigation {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+  &-no-scroll {
     overflow: hidden;
+
+    &-ios,
+    &-mobile-navigation {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
   }
 }

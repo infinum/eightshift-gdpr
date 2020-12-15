@@ -42,7 +42,7 @@ class PluginsPage implements ServiceInterface
 	{
 		$parentPage = OptionsPage::PARENT_PAGE;
 		$page = OptionsPage::MENU_SLUG;
-		
+
 		$links[] = '<a href="' . admin_url("{$parentPage}?page={$page}") . '">' . esc_html__('Settings', 'eightshift-gdpr') . '</a>';
 
 		return $links;

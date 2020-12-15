@@ -13,6 +13,30 @@ For more information read: https://make.wordpress.org/plugins/2018/04/12/legal-c
 
 ## Development 
 
+### Requirements
+
+1. PHP 7.3
+2. Node 12
+3. [Node.js](https://nodejs.org/en/)
+4. [Composer](https://getcomposer.org/)
+5. [(Optional) WP cli](https://wp-cli.org/)
+
+### Installation
+
+The project is built using [eighshift-boilerplate](https://github.com/infinum/eightshift-boilerplate), [eighshift-libs](https://github.com/infinum/eightshift-libs), and [eighshift-frontend-libs](https://github.com/infinum/eightshift-frontend-libs).
+
+For more details on how to use them, check out the [official documentation](https://infinum.github.io/eightshift-docs/).
+
+Once you clone this repository, you'll need to build it:
+
+```bash
+cd wp-config/plugins/eightshift-gdpr
+
+composer install
+npm install
+npm run build
+```
+
 Builds assets in watch mode using Webpack.
 
 ```bash

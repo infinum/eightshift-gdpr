@@ -1,0 +1,47 @@
+{
+	"name": "@eightshift/eightshift-gdpr",
+	"version": "1.1.0",
+	"description": "Simple and elegant plugin to display GDPR modal that manages your site cookies.",
+	"authors": [
+		{
+			"name": "Eightshift team",
+			"email": "team@eightshift.com",
+			"homepage": "https://eightshift.com/",
+			"role": "Developer / IT Manager"
+		}
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/infinum/eightshift-gdpr.git"
+	},
+	"bugs": {
+		"url": "https://github.com/infinum/eightshift-gdpr/issues"
+	},
+	"homepage": "https://github.com/infinum/eightshift-gdpr#readme",
+	"scripts": {
+		"__eslintTheme": "eslint src/**/*.js",
+		"__stylelintTheme": "stylelint src/**/*.scss",
+		"lintStyle": "npm run __stylelintTheme",
+		"lintJs": "npm run __eslintTheme",
+		"lint": "npm run lintJs && npm run lintStyle && bash ./vendor/infinum/eightshift-libs/src/LintPhp/lintPhp.sh",
+		"start": "webpack --progress --watch --display-error-details --display-reasons --mode development",
+		"build": "webpack --progress --mode production",
+		"storybookBuild": "build-storybook -s public -o storybook",
+		"storybook": "start-storybook -s public",
+		"test": "wp boilerplate"
+	},
+	"devDependencies": {
+		"husky": "^4.2.5",
+		"webpack": "^4.44.1",
+		"webpack-cli": "^3.3.12"
+	},
+	"dependencies": {
+		"@eightshift/frontend-libs": "git+https://github.com/infinum/eightshift-frontend-libs.git#release/4.0.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint"
+		}
+	}
+}

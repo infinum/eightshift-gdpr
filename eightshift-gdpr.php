@@ -9,7 +9,7 @@
  * Plugin Name:       Eightshift GDPR
  * Plugin URI:        https://github.com/infinum/eightshift-gdpr
  * Description:       Simple and elegant plugin to display GDPR modal that manages your site cookies.
- * Version:           1.0.1
+ * Version:           1.1.0
  * Author:            Eightshift team <team@eightshift.com>
  * Author URI:        https://eightshift.com
  * License:           MIT
@@ -19,49 +19,62 @@
  * Requires PHP:      7.2
  */
 
-namespace Eightshift_Gdpr;
+namespace Eightshift\EightshiftGdpr;
 
-use Eightshift_Gdpr\Includes\Main;
+use Eightshift\EightshiftGdpr\Main\PluginFactory;
+use EightshiftGdprVendor\EightshiftLibs\Cli\Cli;
+use EightshiftGdprVendor\EightshiftLibs\Exception\PluginActivationFailure;
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-  die;
-}
-
-
-/**
- * Global assets public path
- *
- * @since 1.0.0
+/*
+ * Make sure this file is only run from within WordPress.
  */
-define( 'ESGDPR_ASSETS_PUBLIC_URL', plugins_url( '/skin/public/', __FILE__ ) );
+if (!defined('ABSPATH')) {
+	$error_message = \esc_html__('You cannot access this file outside WordPress.', 'eightshift-gdpr');
+	throw PluginActivationFailure::activationMessage($error_message);
+}
 
 /**
  * Include the autoloader so we can dynamically include the rest of the classes.
  *
  * @since 1.0.0
  */
-require __DIR__ . '/vendor/autoload.php';
+$loader = require dirname(__FILE__) . '/vendor/autoload.php';
+$psr4Prefixes = $loader->getPrefixesPsr4();
 
 /**
- * Include the autoloader so we can dynamically include the rest of the classes.
+ * The code that runs during plugin activation.
  *
- * @since 1.0.0
+ * @since 1.1.0
  */
-require_once 'helpers/global-utilities.php';
+\register_activation_hook(
+	__FILE__,
+	function () use ($psr4Prefixes) {
+		PluginFactory::create($psr4Prefixes, __NAMESPACE__)->activate();
+	}
+);
 
 /**
- * Begins execution of the plugin.
+ * The code that runs during plugin deactivation.
  *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since 1.0.0
+ * @since 1.1.0
  */
-function init_plugin() {
-  $plugin = new Main();
-  $plugin->run();
+\register_deactivation_hook(
+	__FILE__,
+	function () use ($psr4Prefixes) {
+		PluginFactory::create($psr4Prefixes, __NAMESPACE__)->deactivate();
+	}
+);
+
+/**
+ * Begins plugin execution.
+ *
+ * @since 1.1.0
+ */
+PluginFactory::create($psr4Prefixes, __NAMESPACE__)->register();
+
+/**
+ * Run all WP-CLI commands.
+ */
+if (class_exists(Cli::class)) {
+	(new Cli())->load('boilerplate');
 }
-
-init_plugin();

@@ -1,0 +1,62 @@
+{
+	"name": "eightshift/eightshift-gdpr",
+	"description": "Simple and elegant plugin to display GDPR modal that manages your site cookies.",
+  	"type": "wordpress-plugin",
+	"keywords": [
+		"GDPR",
+		"plugin",
+		"WordPress"
+	],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Eightshift team",
+			"email": "team@eightshift.com",
+			"homepage": "https://eightshift.com/",
+			"role": "Developer / IT Manager"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/infinum/eightshift-gdpr/issues",
+		"source": "https://github.com/infinum/eightshift-gdpr"
+	},
+	"require-dev": {
+		"infinum/coding-standards-wp": "^1.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+		"szepeviktor/phpstan-wordpress": "^0.7",
+		"php-stubs/wordpress-stubs": "^5.5"
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/infinum/eightshift-libs.git"
+		}
+	],
+	"require": {
+		"php": "^7.2",
+		"infinum/eightshift-libs": "dev-release/3.0.0",
+		"typisttech/imposter-plugin": "^0.6.2"
+	},
+	"autoload": {
+		"psr-4": {
+			"Eightshift\\EightshiftGdpr\\": "src/"
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"config": {
+		"sort-packages": true,
+		"optimize-autoloader": true,
+		"process-timeout": 2000
+	},
+	"scripts": {
+		"analyze": "@php ./vendor/bin/phpstan analyze",
+		"standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+		"standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+	},
+	"extra": {
+		"imposter": {
+			"namespace": "EightshiftGdprVendor"
+		}
+	}
+}

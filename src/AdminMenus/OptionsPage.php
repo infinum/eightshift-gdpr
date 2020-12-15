@@ -31,6 +31,7 @@ class OptionsPage extends AbstractPages implements ServiceInterface
 	{
 		\add_action('admin_menu', [$this, 'addSettingsPage']);
 	}
+
 	/**
 	 * Add plugin options page
 	 *
@@ -68,7 +69,9 @@ class OptionsPage extends AbstractPages implements ServiceInterface
 	}
 
 	/**
-	 * @inheritDoc
+	 * Get the title to use for the admin page.
+	 *
+	 * @return string The text to be displayed in the title tags of the page when the menu is selected.
 	 */
 	protected function getTitle(): string
 	{
@@ -76,7 +79,9 @@ class OptionsPage extends AbstractPages implements ServiceInterface
 	}
 
 	/**
-	 * @inheritDoc
+	 * Get the menu title to use for the admin menu.
+	 *
+	 * @return string The text to be used for the menu.
 	 */
 	protected function getMenuTitle(): string
 	{
@@ -84,7 +89,9 @@ class OptionsPage extends AbstractPages implements ServiceInterface
 	}
 
 	/**
-	 * @inheritDoc
+	 * Get the capability required for this menu to be displayed.
+	 *
+	 * @return string The capability required for this menu to be displayed to the user.
 	 */
 	protected function getCapability(): string
 	{
@@ -92,7 +99,12 @@ class OptionsPage extends AbstractPages implements ServiceInterface
 	}
 
 	/**
-	 * @inheritDoc
+	 * Get the menu slug.
+	 *
+	 * @return string The slug name to refer to this menu by.
+	 *                Should be unique for this menu page and only include
+	 *                lowercase alphanumeric, dashes, and underscores characters
+	 *                to be compatible with sanitize_key().
 	 */
 	protected function getMenuSlug(): string
 	{
@@ -100,7 +112,9 @@ class OptionsPage extends AbstractPages implements ServiceInterface
 	}
 
 	/**
-	 * @inheritDoc
+	 * Get the View URI to use for rendering the admin menu.
+	 *
+	 * @return string View URI.
 	 */
 	protected function getViewUri(): string
 	{
@@ -108,11 +122,16 @@ class OptionsPage extends AbstractPages implements ServiceInterface
 	}
 
 	/**
-	 * @inheritDoc
+	 * Process the admin menu attributes.
+	 *
+	 * @param array|string $attr Raw admin menu attributes passed into the
+	 *                           admin menu function.
+	 *
+	 * @return array Processed admin menu attributes.
 	 */
 	protected function processAttributes($attr): array
 	{
-		$attr = (array) $attr;
+		$attr = (array)$attr;
 
 		return $attr;
 	}

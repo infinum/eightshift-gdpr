@@ -41,7 +41,7 @@ class Plugin extends AbstractMain
 	/**
 	 * Activate the plugin.
 	 *
-	 * @throws Exception\PluginActivationFailure|Exception If a condition for plugin activation isn't met.
+	 * @throws PluginActivationFailure|Exception If a condition for plugin activation isn't met.
 	 */
 	public function activate(): void
 	{
@@ -72,7 +72,7 @@ class Plugin extends AbstractMain
 	/**
 	 * Deactivate the plugin.
 	 *
-	 * @throws Exception
+	 * @throws Exception If a condition for plugin deactivation isn't met.
 	 */
 	public function deactivate(): void
 	{

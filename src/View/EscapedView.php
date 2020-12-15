@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Eightshift\EightshiftGdpr\View;
 
-use \EightshiftGdprVendor\EightshiftLibs\Exception\FailedToLoadView;
+use EightshiftGdprVendor\EightshiftLibs\Exception\FailedToLoadView;
 use Eightshift\EightshiftGdpr\Exception\InvalidUri;
 
 /**
@@ -30,84 +30,84 @@ final class EscapedView implements ViewInterface
 	 * Tags that are allowed to be rendered.
 	 */
 	public const ALLOWED_TAGS = [
-		'form'   => [
-			'id'     => true,
-			'class'  => true,
+		'form' => [
+			'id' => true,
+			'class' => true,
 			'action' => true,
 			'method' => true,
 		],
-		'input'  => [
-			'id'      => true,
-			'class'   => true,
-			'type'    => true,
-			'name'    => true,
-			'value'   => true,
+		'input' => [
+			'id' => true,
+			'class' => true,
+			'type' => true,
+			'name' => true,
+			'value' => true,
 			'checked' => true,
 		],
 		'select' => [
-			'id'    => true,
+			'id' => true,
 			'class' => true,
-			'type'  => true,
-			'name'  => true,
+			'type' => true,
+			'name' => true,
 			'value' => true,
 		],
 		'option' => [
-			'id'       => true,
-			'class'    => true,
-			'type'     => true,
-			'name'     => true,
-			'value'    => true,
+			'id' => true,
+			'class' => true,
+			'type' => true,
+			'name' => true,
+			'value' => true,
 			'selected' => true,
 		],
-		'label'  => [
+		'label' => [
 			'for' => true,
 		],
-		'div'    => [
+		'div' => [
 			'class' => true,
 		],
-		'svg'    => [
-			'class'   => true,
-			'style'   => true,
-			'width'   => true,
-			'height'  => true,
+		'svg' => [
+			'class' => true,
+			'style' => true,
+			'width' => true,
+			'height' => true,
 			'viewbox' => true,
-			'xmlns'   => true,
+			'xmlns' => true,
 		],
-		'g'      => [
-			'fill'      => true,
+		'g' => [
+			'fill' => true,
 			'fill-rule' => true,
 			'transform' => true,
 		],
-		'path'   => [
-			'd'            => true,
-			'id'           => true,
-			'fill'         => true,
-			'style'        => true,
-			'stroke'       => true,
+		'path' => [
+			'd' => true,
+			'id' => true,
+			'fill' => true,
+			'style' => true,
+			'stroke' => true,
 			'stroke-width' => true,
 		],
-		'mask'   => [
-			'id'   => true,
+		'mask' => [
+			'id' => true,
 			'fill' => true,
 		],
-		'rect'   => [
+		'rect' => [
 			'transform' => true,
-			'fill'      => true,
-			'width'     => true,
-			'height'    => true,
-			'rx'        => true,
-			'ry'        => true,
-			'x'         => true,
-			'y'         => true,
+			'fill' => true,
+			'width' => true,
+			'height' => true,
+			'rx' => true,
+			'ry' => true,
+			'x' => true,
+			'y' => true,
 		],
-		'xmlns'  => [
+		'xmlns' => [
 			'xlink' => true,
 		],
-		'defs'   => [],
-		'span'   => [
+		'defs' => [],
+		'span' => [
 			'title' => true,
 		],
-		'br'     => [],
+		'br' => [],
 	];
 
 	/**
@@ -128,9 +128,8 @@ final class EscapedView implements ViewInterface
 	 * Instantiate a Escaped_View object.
 	 *
 	 * @param ViewInterface $viewInterface View instance to decorate.
-	 * @param array|null $allowedTags Optional. Array of allowed tags to let
-	 *                                 through escaping functions. Set to sane
-	 *                                 defaults if none provided.
+	 * @param array|null    $allowedTags Optional. Array of allowed tags to let through escaping functions.
+	 *                                   Set to sane defaults if none provided.
 	 */
 	public function __construct(ViewInterface $viewInterface, $allowedTags = null)
 	{
@@ -162,7 +161,7 @@ final class EscapedView implements ViewInterface
 	 * The passed-in context is optional, and will fall back to the parent's
 	 * context if omitted.
 	 *
-	 * @param string $uri URI of the partial to render.
+	 * @param string     $uri URI of the partial to render.
 	 * @param array|null $context Context in which to render the partial.
 	 *
 	 * @return string Rendered HTML.
@@ -191,6 +190,6 @@ final class EscapedView implements ViewInterface
 	 */
 	private function prepareAllowedTags(array $allowedTags): array
 	{
-		return (array) array_replace_recursive($allowedTags, self::ALLOWED_TAGS);
+		return (array)array_replace_recursive($allowedTags, self::ALLOWED_TAGS);
 	}
 }

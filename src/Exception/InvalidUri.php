@@ -24,14 +24,14 @@ use InvalidArgumentException;
 final class InvalidUri extends InvalidArgumentException implements GeneralException
 {
 	/**
-	* Create a new instance of the exception for a file that is not accessible
-	* or not readable.
-	*
-	* @param string $uri URI of the file that is not accessible or not
-	*                    readable.
-	*
-	* @return static
-	*/
+	 * Create a new instance of the exception for a file that is not accessible
+	 * or not readable.
+	 *
+	 * @param string $uri URI of the file that is not accessible or not
+	 *                    readable.
+	 *
+	 * @return InvalidUri
+	 */
 	public static function fromUri(string $uri): InvalidUri
 	{
 		$message = sprintf('The View URI "%s" is not accessible or readable.', $uri);

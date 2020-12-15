@@ -1,8 +1,9 @@
 <?php
+
 /**
  * Plugin main file starting point
  *
- * @since             1.0.1
+ * @since             1.0.0
  * @package           eightshift-gdpr
  *
  * @wordpress-plugin
@@ -15,8 +16,8 @@
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
  * Text Domain:       eightshift-gdpr
- * Requires at least: 5.0
- * Requires PHP:      7.2
+ * Requires at least: 5.3
+ * Requires PHP:      7.3
  */
 
 namespace Eightshift\EightshiftGdpr;
@@ -29,8 +30,8 @@ use EightshiftGdprVendor\EightshiftLibs\Exception\PluginActivationFailure;
  * Make sure this file is only run from within WordPress.
  */
 if (!defined('ABSPATH')) {
-	$error_message = \esc_html__('You cannot access this file outside WordPress.', 'eightshift-gdpr');
-	throw PluginActivationFailure::activationMessage($error_message);
+	$errorMessage = \esc_html__('You cannot access this file outside WordPress.', 'eightshift-gdpr');
+	throw PluginActivationFailure::activationMessage($errorMessage);
 }
 
 /**

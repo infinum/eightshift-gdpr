@@ -9,7 +9,6 @@
 
 declare(strict_types=1);
 
-
 namespace Eightshift\EightshiftGdpr\AdminMenus;
 
 use Eightshift\EightshiftGdpr\View\{EscapedView, RenderableInterface, TemplatedView};
@@ -19,7 +18,7 @@ use Exception;
  * AbstractPages class
  *
  * @package Eightshift\EightshiftGdpr\AdminMenus
- * @since
+ * @since 1.1.0
  */
 abstract class AbstractPages implements RenderableInterface
 {

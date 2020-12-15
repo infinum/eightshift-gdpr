@@ -23,14 +23,14 @@ use EightshiftGdprVendor\EightshiftLibs\Exception\FailedToLoadView;
 interface ViewInterface extends RenderableInterface
 {
 	/**
-     * Render a given URI.
-     *
-     * @param array $context Context in which to render.
-     *
-     * @return string Rendered HTML.
+	 * Render a given URI.
 	 *
-     * @throws FailedToLoadView If the View URI could not be loaded.
-     */
+	 * @param array $context Context in which to render.
+	 *
+	 * @return string Rendered HTML.
+	 *
+	 * @throws FailedToLoadView If the View URI could not be loaded.
+	 */
 	public function render(array $context = []): string;
 
 	/**
@@ -42,7 +42,7 @@ interface ViewInterface extends RenderableInterface
 	 * The passed-in context is optional, and will fall back to the parent's
 	 * context if omitted.
 	 *
-	 * @param string     $uri     URI of the partial to render.
+	 * @param string     $uri URI of the partial to render.
 	 * @param array|null $context Context in which to render the partial.
 	 *
 	 * @return string Rendered HTML.

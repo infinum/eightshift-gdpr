@@ -3,3 +3,5 @@
  *
  * Usage: `WordPress admin screen`.
  */
+
+import './settings/index.jsx';

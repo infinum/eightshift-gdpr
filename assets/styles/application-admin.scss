@@ -4,3 +4,11 @@
  * Usage: `WordPress admin screen`.
  *
  */
+// Globals.
+@import './parts/shared';
+
+// Options page.
+@import 'options-page/options-page';
+@import 'options-page/components/base-control';
+@import 'options-page/components/details-table';
+@import 'options-page/components/panel';

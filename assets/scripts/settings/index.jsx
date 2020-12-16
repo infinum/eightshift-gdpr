@@ -47,75 +47,75 @@ class App extends Component {
 
 		this.settings = {};
 	}
+	//
+	// componentDidMount() {
+	// 	wp.api.loadPromise.done(() => {
+	// 		if (this.state.isLoading) {
+	// 			this.settings = new wp.api.models.Settings();
+	//
+	// 			this.settings.fetch().then(res => {
+	//
+	// 				this.setState({
+	// 					isLoading: false,
+	// 				});
+	// 			});
+	// 		}
+	// 	});
+	// }
 
-	componentDidMount() {
-		wp.api.loadPromise.done(() => {
-			if (this.state.isLoading) {
-				this.settings = new wp.api.models.Settings();
-
-				this.settings.fetch().then(res => {
-
-					this.setState({
-						isLoading: false,
-					});
-				});
-			}
-		});
-	}
-
-	@bind
-	setStateSynchronous(stateUpdate) {
-		return new Promise(resolve => {
-			this.setState(stateUpdate, () => resolve());
-		})
-	}
-
-	@bind
-	async updateOptions() {
-		await this.setStateSynchronous(
-			state => ({isSaving: true, errors: {}})
-		);
-
-		// Create options object.
-		const options = [];
-
-		this.settings.save(options, {
-			success: (model, res) => {
-
-
-
-				setTimeout(() => {
-					this.setState({
-						isSaved: false
-					});
-				}, 3000);
-			},
-			error: (model, res) => {
-				const errors = res.responseJSON.data.params;
-
-				this.setState({
-					errors: errors,
-					isSaving: false,
-					isSaved: true,
-					hasErrors: true,
-				});
-
-				const target = document.querySelector(`[name=${Object.keys(errors)[0]}]`);
-
-				window.scrollTo({
-					top: target.offsetTop - 30,
-					left: 0,
-					behavior: 'smooth',
-				});
-
-				setTimeout(() => {
-					this.setState({
-						isSaved: false
-					});
-				}, 3000);
-			}
-		});
-	}
+	// @bind
+	// setStateSynchronous(stateUpdate) {
+	// 	return new Promise(resolve => {
+	// 		this.setState(stateUpdate, () => resolve());
+	// 	})
+	// }
+	//
+	// @bind
+	// async updateOptions() {
+	// 	await this.setStateSynchronous(
+	// 		state => ({isSaving: true, errors: {}})
+	// 	);
+	//
+	// 	// Create options object.
+	// 	const options = [];
+	//
+	// 	this.settings.save(options, {
+	// 		success: (model, res) => {
+	//
+	//
+	//
+	// 			setTimeout(() => {
+	// 				this.setState({
+	// 					isSaved: false
+	// 				});
+	// 			}, 3000);
+	// 		},
+	// 		error: (model, res) => {
+	// 			const errors = res.responseJSON.data.params;
+	//
+	// 			this.setState({
+	// 				errors: errors,
+	// 				isSaving: false,
+	// 				isSaved: true,
+	// 				hasErrors: true,
+	// 			});
+	//
+	// 			const target = document.querySelector(`[name=${Object.keys(errors)[0]}]`);
+	//
+	// 			window.scrollTo({
+	// 				top: target.offsetTop - 30,
+	// 				left: 0,
+	// 				behavior: 'smooth',
+	// 			});
+	//
+	// 			setTimeout(() => {
+	// 				this.setState({
+	// 					isSaved: false
+	// 				});
+	// 			}, 3000);
+	// 		}
+	// 	});
+	// }
 
 	renderSnackbar() {
 		return (
@@ -126,13 +126,13 @@ class App extends Component {
 						__('Settings saved', 'eightshift-gdpr')
 				}
 			</Snackbar>
-		)
+		);
 	}
 
 	objectHasEmptyProperties(object) {
 		for (const key in object) {
 			if (object.hasOwnProperty(key)) {
-				if (object[key] != null && object[key] !== '' && typeof(object[key]) !== 'undefined') {
+				if (object[key] !== null && object[key] !== '' && typeof(object[key]) !== 'undefined') {
 					return false;
 				}
 			}
@@ -147,7 +147,7 @@ class App extends Component {
 				<p className='components-base-control__error'>
 					{__('Validation error: ', 'eightshift-gdpr') + this.state.errors[type]}
 				</p>
-			)
+			);
 		}
 	}
 
@@ -156,21 +156,18 @@ class App extends Component {
 	}
 
 	render() {
-		if (this.state.isLoading) {
-			return (
-				<Fragment>
-					<div className='options-wrapper is-loading'>
-						<Spinner/>
-					</div>
-				</Fragment>
-			);
-		}
-
-		const paymentGateways = this.state.solo_api_available_gateways;
+		// if (this.state.isLoading) {
+		// 	return (
+		// 		<Fragment>
+		// 			<div className='options-wrapper is-loading'>
+		// 				<Spinner/>
+		// 			</div>
+		// 		</Fragment>
+		// 	);
+		// }
 
 		return (
 			<Fragment>
-				{this.renderNotification()}
 				<div className='options-wrapper'>
 					<PanelBody
 						title={__('Basic screen', 'eightshift-gdpr')}
@@ -182,7 +179,7 @@ class App extends Component {
 					</PanelBody>
 					<PanelBody
 						title={__('Advanced screen', 'eightshift-gdpr')}
-						initialOpen={true}
+						initialOpen={false}
 					>
 						<PanelRow>
 
@@ -190,7 +187,7 @@ class App extends Component {
 					</PanelBody>
 					<PanelBody
 						title={__('Genral settings', 'eightshift-gdpr')}
-						initialOpen={true}
+						initialOpen={false}
 					>
 						<PanelRow>
 

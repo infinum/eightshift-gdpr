@@ -21,6 +21,10 @@ use EightshiftGdprVendor\EightshiftLibs\Enqueue\Admin\AbstractEnqueueAdmin;
  */
 class EnqueueAdmin extends AbstractEnqueueAdmin
 {
+	/**
+	 * @var ManifestInterface
+	 */
+	protected $manifest;
 
 	/**
 	 * Create a new admin instance.
@@ -80,6 +84,18 @@ class EnqueueAdmin extends AbstractEnqueueAdmin
 			'eightshift-gdpr',
 			dirname(__FILE__, 3) . '/languages/'
 		);
+	}
+
+	/**
+	 * Get admin style dependencies
+	 *
+	 * @link https://developer.wordpress.org/reference/functions/wp_enqueue_style/
+	 *
+	 * @return array List of all the style dependencies.
+	 */
+	protected function getAdminStyleDependencies(): array
+	{
+		return ['wp-components'];
 	}
 
 	/**

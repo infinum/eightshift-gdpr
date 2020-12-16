@@ -12,7 +12,7 @@ module.exports = (env, argv) => {
 		config: {
 			projectDir: __dirname, // Current project directory absolute path.
 			projectUrl: '', // Used for providing browsersync functionality.
-			projectPath: 'wp-content/plugin/eightshift-gdpr', // Project path relative to project root.
+			projectPath: 'wp-content/plugins/eightshift-gdpr', // Project path relative to project root.
 		},
 	};
 

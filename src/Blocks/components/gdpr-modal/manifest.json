@@ -1,0 +1,16 @@
+{
+	"componentName": "gdpr-modal",
+	"title": "GDPR Modal",
+	"componentClass": "gdpr-modal",
+	"example": {
+		"attributes": {
+			"gdprModalUse": true
+		}
+	},
+	"attributes": {
+		"gdprModalUse": {
+			"type": "boolean",
+			"default": true
+		}
+	}
+}

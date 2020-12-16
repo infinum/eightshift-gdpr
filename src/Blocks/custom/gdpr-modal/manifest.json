@@ -1,0 +1,15 @@
+{
+	"blockName": "gdpr-modal",
+	"title": "GDPR Modal block",
+	"description" : "GDPR modal block with custom settings.",
+	"category": "eightshift-gdpr",
+	"icon": {
+		"src": "button"
+	},
+	"keywords": [
+		"modal"
+	],
+	"components": {
+		"button": "gdpr-modal"
+	}
+}
